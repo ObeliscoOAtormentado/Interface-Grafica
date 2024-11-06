@@ -8,10 +8,10 @@ public class Janela{
     private ArrayList<Qqcoisa> umaLista;
 
     private JTextField tfUser;
-    private JPasswordField pfPass;
+    private JTextField pfPass;
     private JTextField tfSal;
     private JButton btLogin;
-    private JRadioButton btSensivel, btSensivel2;
+    private JRadioButton btSensivel, btSensivel2, btBicicletas, btMotocicletas, btVeiculosC, btCaminhoes, btCaminhoesRefri;
 
 
     public Janela(){
@@ -28,7 +28,7 @@ public class Janela{
         
         JPanel linha2 = new JPanel(new FlowLayout(FlowLayout.LEADING));
         JLabel lbPass = new JLabel("Nome ");
-        pfPass = new JPasswordField(20);
+        pfPass = new JTextField(20);
         linha2.add(lbPass);
         linha2.add(pfPass);
     
@@ -42,12 +42,12 @@ public class Janela{
         linha3.add(tfSal);
         
         JPanel linha4 = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        JButton btClean = new JButton("Limpar");
+        JButton btImprime = new JButton("Imprimir");
         JLabel lbEmpty2 = new JLabel(" ");
         btLogin = new JButton("Salvar");
         linha4.add(btLogin);
         linha4.add(lbEmpty2);
-        linha4.add(btClean);
+        linha4.add(btImprime);
 
         JPanel linha5 = new JPanel(new FlowLayout(FlowLayout.LEADING));
         JLabel label= new JLabel("Sensivel a calor");
@@ -57,7 +57,23 @@ public class Janela{
         linha5.add(label);
         linha5.add(lbEmpty3);
         linha5.add(btSensivel);
-        linha5.add(btSensivel2);    
+        linha5.add(btSensivel2);
+        
+        JPanel linha6 = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        JLabel Trans= new JLabel("Escolha o método de transporte");
+        btBicicletas = new JRadioButton("Bicicleta ");
+        btMotocicletas = new JRadioButton("Motocicleta");
+        btVeiculosC= new JRadioButton("Veiculo Convencional ");
+        btCaminhoes = new JRadioButton("Caminhão");
+        btCaminhoesRefri= new JRadioButton("Caminhão Refrigerado");
+        linha6.add(Trans);
+        linha6.add(btBicicletas);
+        linha6.add(btMotocicletas);
+        linha6.add(btVeiculosC);
+        linha6.add(btCaminhoes);
+        linha6.add(btCaminhoesRefri);
+            
+        
         
         
         JFrame frame2 = new JFrame("Exemplo - menus");
@@ -91,12 +107,16 @@ public class Janela{
 
         });
 
-        btClean.addActionListener(e -> {
+        btImprime.addActionListener(e -> {
 
             for(Qqcoisa q : umaLista)
                 System.out.println(q);
 
         });
+
+        Trans.addActionListener(e->{
+            if()
+        })
 
 
 
@@ -113,6 +133,7 @@ public class Janela{
         contentPane.add(linha3);
         contentPane.add(linha4);
         contentPane.add(linha5);
+        contentPane.add(linha6);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
