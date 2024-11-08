@@ -10,6 +10,7 @@ public class Janela{
     private JTextField tfDesc;
     private JTextField pfPeso;
     private JTextField tfVol;
+    private JTextField tfValor;
     private JButton btLogin;
     private JRadioButton btSensivel, btSensivel2;
 
@@ -17,7 +18,7 @@ public class Janela{
     public Janela(){
         this.umaLista = new ArrayList<>();
 
-        JFrame frame = new JFrame("Exercicio-Swing");
+        JFrame frame = new JFrame("Trabalho POO");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     
         JPanel linha1 = new JPanel(new FlowLayout(FlowLayout.LEADING));
@@ -38,8 +39,14 @@ public class Janela{
         tfVol = new JTextField(20);
         linha3.add(lbVol);
         linha3.add(tfVol);
+
+        JPanel linha4 = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        JLabel lbValor = new JLabel("Valor aproximado da carga ");
+        tfValor = new JTextField(20);
+        linha3.add(lbValor);
+        linha3.add(tfValor);
         
-        JPanel linha4 = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JPanel linha5 = new JPanel(new FlowLayout(FlowLayout.CENTER));
         JButton btImprime = new JButton("Imprimir");
         JLabel lbEmpty2 = new JLabel(" ");
         btLogin = new JButton("Salvar");
@@ -47,7 +54,7 @@ public class Janela{
         linha4.add(lbEmpty2);
         linha4.add(btImprime);
 
-        JPanel linha5 = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        JPanel linha6 = new JPanel(new FlowLayout(FlowLayout.LEADING));
         JLabel label= new JLabel("Sensivel a calor");
         JLabel lbEmpty3= new JLabel(" ");
         btSensivel= new JRadioButton("Sim ");
@@ -59,6 +66,10 @@ public class Janela{
         linha5.add(btSensivel2);
         bGroup.add(btSensivel);
         bGroup.add(btSensivel2);
+
+        
+
+        
         
        
             
@@ -76,8 +87,9 @@ public class Janela{
                 String descricao = tfDesc.getText();
                 float peso = (float) Double.parseDouble(pfPeso.getText()); 
                 float volume = (float) Double.parseDouble(tfVol.getText());
+                float valor = (float) Double.parseDouble(tfValor.getText());
                 boolean sensivel = btSensivel.isSelected();
-                umaLista.add(new Qqcoisa(descricao,peso,volume,sensivel));
+                umaLista.add(new Qqcoisa(descricao,peso,volume,valor,sensivel));
 
             } catch (Exception exc) {
                 JOptionPane.showMessageDialog(null, "erro de conversao de tipo", "Erro", JOptionPane.WARNING_MESSAGE);
@@ -107,6 +119,7 @@ public class Janela{
         contentPane.add(linha3);
         contentPane.add(linha4);
         contentPane.add(linha5);
+        contentPane.add(linha6);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
