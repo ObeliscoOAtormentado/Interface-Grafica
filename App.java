@@ -1,9 +1,3 @@
-import java.awt.*;
-import java.util.List;
-import java.util.ArrayList;
-import javax.swing.*;
-
-
 
 public class App {
 
@@ -11,4 +5,3 @@ public class App {
         Janela j = new Janela();
     }
 }
-
