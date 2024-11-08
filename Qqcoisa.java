@@ -2,35 +2,27 @@ public class Qqcoisa {
 
     private String descricao;
     private float peso,volume, valor;
-    private boolean sensivel;
+    private boolean sensivel,urgente;
 
    
 
-    public Qqcoisa(String descricao, float peso, float volume, float valor, boolean sensivel) {
+    public Qqcoisa(String descricao, float peso, float volume, float valor, boolean sensivel,boolean urgente) {
         this.descricao = descricao;
         this.peso = peso;
         this.volume = volume;
         this.valor = valor;
         this.sensivel = sensivel;
+        this.urgente=urgente;
     }
 
 
 
     @Override
     public String toString() {
-        return "Qqcoisa [Descricao=" + descricao + ", Peso=" + peso + ", Volume=" + volume + ", Valor aproximado da carga=" + valor
-                + ", Sensivel ao calor=" + sensivel + "]";
+        return "Qqcoisa [Descricao=" + descricao + ", Peso=" + peso + ", Volume=" + volume + ", Valor=" + valor
+                + ", Sensivel=" + sensivel + ", Urgente=" + urgente + "]";
     }
 
-
-
     
-
-
-
-   
-
-
-
-    
+ 
 }
