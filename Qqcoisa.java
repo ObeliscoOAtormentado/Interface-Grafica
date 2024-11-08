@@ -1,18 +1,36 @@
 public class Qqcoisa {
 
-    private String ID, Nome;
-    private float Salario;
-    private boolean Sensivel;
+    private String descricao;
+    private float peso,volume, valor;
+    private boolean sensivel;
 
-    public Qqcoisa(String id, String nome, float salario, boolean sensivel){
-        this.ID=id;
-        this.Nome=nome;
-        this.Salario=salario;
-        this.Sensivel=sensivel;
+   
+
+    public Qqcoisa(String descricao, float peso, float volume, float valor, boolean sensivel) {
+        this.descricao = descricao;
+        this.peso = peso;
+        this.volume = volume;
+        this.valor = valor;
+        this.sensivel = sensivel;
     }
 
-    public String toString(){
-        return "{ ID="+this.ID+"; Nome=" +this.Nome+"; Salario="+this.Salario+"; Sensivel="+this.Sensivel+"}\n";
+
+
+    @Override
+    public String toString() {
+        return "Qqcoisa [Descricao=" + descricao + ", Peso=" + peso + ", Volume=" + volume + ", Valor aproximado da carga=" + valor
+                + ", Sensivel ao calor=" + sensivel + "]";
     }
 
+
+
+    
+
+
+
+   
+
+
+
+    
 }
