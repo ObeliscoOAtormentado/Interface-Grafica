@@ -12,7 +12,7 @@ public class Janela{
     private JTextField tfVol;
     private JTextField tfValor;
     private JButton btLogin;
-    private JRadioButton btSensivel, btSensivel2;
+    private JRadioButton btSensivel, btSensivel2, btUrgente,btUrgente2;
 
 
     public Janela(){
@@ -45,16 +45,8 @@ public class Janela{
         tfValor = new JTextField(20);
         linha3.add(lbValor);
         linha3.add(tfValor);
-        
-        JPanel linha5 = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        JButton btImprime = new JButton("Imprimir");
-        JLabel lbEmpty2 = new JLabel(" ");
-        btLogin = new JButton("Salvar");
-        linha4.add(btLogin);
-        linha4.add(lbEmpty2);
-        linha4.add(btImprime);
 
-        JPanel linha6 = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        JPanel linha5 = new JPanel(new FlowLayout(FlowLayout.LEADING));
         JLabel label= new JLabel("Sensivel a calor");
         JLabel lbEmpty3= new JLabel(" ");
         btSensivel= new JRadioButton("Sim ");
@@ -67,18 +59,26 @@ public class Janela{
         bGroup.add(btSensivel);
         bGroup.add(btSensivel2);
 
-        
+        JPanel linha6 = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        JLabel label2= new JLabel("O envio é urgente");
+        JLabel lbEmpty4= new JLabel(" ");
+        btUrgente= new JRadioButton("Sim ");
+        ButtonGroup bGroup2= new ButtonGroup();
+        btUrgente2 = new JRadioButton("Não");
+        linha5.add(label2);
+        linha5.add(lbEmpty4);
+        linha5.add(btUrgente);
+        linha5.add(btUrgente2);
+        bGroup2.add(btUrgente);
+        bGroup2.add(btUrgente2);
 
-        
-        
-       
-            
-        
-        
-        
-        JFrame frame2 = new JFrame("Exemplo - menus");
-        frame.setSize(400, 400);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JPanel linha7 = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JButton btImprime = new JButton("Imprimir");
+        JLabel lbEmpty2 = new JLabel(" ");
+        btLogin = new JButton("Salvar");
+        linha4.add(btLogin); 
+        linha4.add(lbEmpty2);
+        linha4.add(btImprime);
 
 
     //ACTIONLISTENER ZONE
@@ -89,10 +89,11 @@ public class Janela{
                 float volume = (float) Double.parseDouble(tfVol.getText());
                 float valor = (float) Double.parseDouble(tfValor.getText());
                 boolean sensivel = btSensivel.isSelected();
-                umaLista.add(new Qqcoisa(descricao,peso,volume,valor,sensivel));
+                boolean urgente = btUrgente.isSelected();
+                umaLista.add(new Qqcoisa(descricao,peso,volume,valor,sensivel,urgente));
 
             } catch (Exception exc) {
-                JOptionPane.showMessageDialog(null, "erro de conversao de tipo", "Erro", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Alguma informação inserida esta errada", "Erro", JOptionPane.WARNING_MESSAGE);
             }
 
 
@@ -105,21 +106,15 @@ public class Janela{
 
         });
 
-
-
-        
-        frame.setVisible(true);
-
         Container contentPane = frame.getContentPane();
-        Container contentPane2 = frame2.getContentPane();
         contentPane.setLayout(new BoxLayout(contentPane,BoxLayout.PAGE_AXIS));
-        contentPane2.setLayout(new BoxLayout(contentPane,BoxLayout.PAGE_AXIS));
         contentPane.add(linha1);
         contentPane.add(linha2);
         contentPane.add(linha3);
         contentPane.add(linha4);
         contentPane.add(linha5);
         contentPane.add(linha6);
+        contentPane.add(linha7);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
