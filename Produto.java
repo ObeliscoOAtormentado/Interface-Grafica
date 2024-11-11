@@ -1,12 +1,11 @@
-public class Qqcoisa {
+public class Produto {
 
     private String descricao;
     private float peso,volume, valor;
     private boolean sensivel,urgente;
 
-   
 
-    public Qqcoisa(String descricao, float peso, float volume, float valor, boolean sensivel,boolean urgente) {
+    public Produto(String descricao, float peso, float volume, float valor, boolean sensivel,boolean urgente) {
         this.descricao = descricao;
         this.peso = peso;
         this.volume = volume;
@@ -23,6 +22,4 @@ public class Qqcoisa {
                 + ", Sensivel=" + sensivel + ", Urgente=" + urgente + "]";
     }
 
-    
- 
 }
