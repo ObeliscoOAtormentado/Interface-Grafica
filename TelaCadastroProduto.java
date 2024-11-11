@@ -3,9 +3,9 @@ import java.util.*;
 
 import javax.swing.*;
 
-public class Janela{
+public class TelaCadastroProduto{
 
-    private ArrayList<Qqcoisa> umaLista;
+    private ArrayList<Produto> umaLista;
 
     private JTextArea tfDesc;
     private JTextField pfPeso;
@@ -15,10 +15,13 @@ public class Janela{
     private JRadioButton btSensivel, btSensivel2, btUrgente,btUrgente2;
 
 
-    public Janela(){
+    
+    
+    
+    public TelaCadastroProduto(){
         this.umaLista = new ArrayList<>();        
 
-        JFrame frame = new JFrame("Trabalho POO");
+        JFrame frame = new JFrame("Detalhes do Produto");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     
         JPanel linha1 = new JPanel(new FlowLayout(FlowLayout.LEADING));
@@ -90,7 +93,7 @@ public class Janela{
                 float valor = (float) Double.parseDouble(tfValor.getText());
                 boolean sensivel = btSensivel.isSelected();
                 boolean urgente = btUrgente.isSelected();
-                umaLista.add(new Qqcoisa(descricao,peso,volume,valor,sensivel,urgente));
+                umaLista.add(new Produto(descricao,peso,volume,valor,sensivel,urgente));
 
             } catch (Exception exc) {
                 JOptionPane.showMessageDialog(null, "Alguma informação inserida esta errada", "Erro", JOptionPane.WARNING_MESSAGE);
@@ -106,7 +109,7 @@ public class Janela{
 
         btImprime.addActionListener(e -> {
 
-            for(Qqcoisa q : umaLista)
+            for(Produto q : umaLista)
                 System.out.println(q);
 
         });
