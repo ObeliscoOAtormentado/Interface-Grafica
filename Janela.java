@@ -7,7 +7,7 @@ public class Janela{
 
     private ArrayList<Qqcoisa> umaLista;
 
-    private JTextField tfDesc;
+    private JTextArea tfDesc;
     private JTextField pfPeso;
     private JTextField tfVol;
     private JTextField tfValor;
@@ -16,14 +16,15 @@ public class Janela{
 
 
     public Janela(){
-        this.umaLista = new ArrayList<>();
+        this.umaLista = new ArrayList<>();        
 
         JFrame frame = new JFrame("Trabalho POO");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     
         JPanel linha1 = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        linha1.setAlignmentY(java.awt.Component.TOP_ALIGNMENT);
         JLabel lbDesc = new JLabel("Descricao ");
-        tfDesc = new JTextField(20);
+        tfDesc = new JTextArea(10, 20);
         linha1.add(lbDesc);
         linha1.add(tfDesc);
         
@@ -43,8 +44,8 @@ public class Janela{
         JPanel linha4 = new JPanel(new FlowLayout(FlowLayout.LEADING));
         JLabel lbValor = new JLabel("Valor aproximado da carga ");
         tfValor = new JTextField(20);
-        linha3.add(lbValor);
-        linha3.add(tfValor);
+        linha4.add(lbValor);
+        linha4.add(tfValor);
 
         JPanel linha5 = new JPanel(new FlowLayout(FlowLayout.LEADING));
         JLabel label= new JLabel("Sensivel a calor");
@@ -65,10 +66,10 @@ public class Janela{
         btUrgente= new JRadioButton("Sim ");
         ButtonGroup bGroup2= new ButtonGroup();
         btUrgente2 = new JRadioButton("Não");
-        linha5.add(label2);
-        linha5.add(lbEmpty4);
-        linha5.add(btUrgente);
-        linha5.add(btUrgente2);
+        linha6.add(label2);
+        linha6.add(lbEmpty4);
+        linha6.add(btUrgente);
+        linha6.add(btUrgente2);
         bGroup2.add(btUrgente);
         bGroup2.add(btUrgente2);
 
@@ -76,10 +77,9 @@ public class Janela{
         JButton btImprime = new JButton("Imprimir");
         JLabel lbEmpty2 = new JLabel(" ");
         btLogin = new JButton("Salvar");
-        linha4.add(btLogin); 
-        linha4.add(lbEmpty2);
-        linha4.add(btImprime);
-
+        linha7.add(btLogin); 
+        linha7.add(lbEmpty2);
+        linha7.add(btImprime);
 
     //ACTIONLISTENER ZONE
         btLogin.addActionListener(e -> {
@@ -95,9 +95,14 @@ public class Janela{
             } catch (Exception exc) {
                 JOptionPane.showMessageDialog(null, "Alguma informação inserida esta errada", "Erro", JOptionPane.WARNING_MESSAGE);
             }
+            
+            if(btLogin!= null)
+            System.out.println("Parametros Salvos");
 
 
         });
+        
+        
 
         btImprime.addActionListener(e -> {
 
@@ -106,16 +111,26 @@ public class Janela{
 
         });
 
+
+        
+        JPanel jpRegistro = new JPanel();
+        jpRegistro.setLayout(new BoxLayout(jpRegistro,BoxLayout.Y_AXIS));
+
+        jpRegistro.add(linha1);
+        jpRegistro.add(linha2);
+        jpRegistro.add(linha3);
+        jpRegistro.add(linha4);
+        jpRegistro.add(linha5);
+        jpRegistro.add(linha6);
+        JScrollPane jsp = new JScrollPane(jpRegistro);
+
         Container contentPane = frame.getContentPane();
         contentPane.setLayout(new BoxLayout(contentPane,BoxLayout.PAGE_AXIS));
-        contentPane.add(linha1);
-        contentPane.add(linha2);
-        contentPane.add(linha3);
-        contentPane.add(linha4);
-        contentPane.add(linha5);
-        contentPane.add(linha6);
+
+        contentPane.add(jsp);
         contentPane.add(linha7);
         frame.pack();
+
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         }
